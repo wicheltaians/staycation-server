@@ -1,0 +1,74 @@
+<!-- DataTables -->
+<div class="tab-pane fade show active" id="show-property" role="tabpanel">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i < property.length; i++){ %>
+                        <tr>
+                            <td>
+                                <%= i + 1 %>
+                            </td>
+                            <td>
+                                <%= property[i].title %>
+                            </td>
+                            <td>
+                                $ <%= property[i].price %>
+                            </td>
+                            <td>
+                                <%= property[i].city %>
+                            </td>
+                            <td>
+                                <%= property[i].country %>
+                            </td>
+                            <td>
+                                <a href="/admin/property/show-image/<%= property[i].id %>" type="button" class="btn btn-info btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-image"></i>
+                                    </span>
+                                    <span class="text">Show Image</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" type="button" class="btn btn-success btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span class="text">Show Description</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/admin/property/<%= property[i].id %>" class="btn btn-warning btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                    <span class="text">Edit</span>
+                                </a>
+                                <button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal<%= property[i].id %>">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

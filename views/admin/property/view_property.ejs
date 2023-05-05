@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../../partials/header.ejs') %>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <%- include('../../partials/sidebar.ejs') %>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <%- include('../../partials/navbar.ejs') %>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <%- include('../../partials/message') %>
+
+                    <% if (action == 'view') { %>
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Property</h1>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="show-property-tab" data-toggle="tab" href="#show-property" role="tab">Property</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="add-property-tab" data-toggle="tab" href="#add-property" role="tab">Add Property</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <%- include('show_table_property.ejs') %>
+                        <%- include('add_property.ejs') %>
+                    </div>
+
+                    <% } else if (action == 'show image') { %>
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Property : <strong><%= property.title %></strong></h1>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="show-property-tab" data-toggle="tab" href="#show-image" role="tab">Property Images</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <%- include('show_image_property.ejs') %>
+                    </div>
+
+                    <% } else { %>
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Property : <strong><%= property.title %></strong></h1>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="show-property-tab" data-toggle="tab" href="#edit-property" role="tab">Update Property</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <%- include('edit_property.ejs') %>
+                    </div>
+
+                    <% } %>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <%- include('../../partials/footer.ejs') %>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <%- include('../../partials/logout_modal.ejs') %>
+
+    <%- include('../../partials/javascript.ejs') %>
+
+    <script>
+        CKEDITOR.replace('about')
+    </script>
+
+</body>
+
+</html>
