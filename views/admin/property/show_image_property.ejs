@@ -1,0 +1,20 @@
+<div class="tab-pane fade show active" id="show-image" role="tabpanel">
+    <div class="row">
+        <% for (let x = 0; x < property.imageId.length; x++) { %>
+        <div class="col-lg-4">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <img src="http://localhost:3000/<%= property.imageId[x].imageUrl %>" alt="image-property" style="width: 100%; display: block;">
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <a href="/admin/property" type="button" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Back</span>
+    </a>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="tab-pane fade show active" id="edit-property" role="tabpanel">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form action="/admin/property/<%= property.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input type="text" class="form-control" name="title" value="<%= property.title %>" placeholder="Enter title" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Price</label>
+                    <input type="number" class="form-control" name="price" value="<%= property.price %>" placeholder="Enter price" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">City</label>
+                    <input type="text" class="form-control" name="city" value="<%= property.city %>" placeholder="Enter city" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Category</label>
+                    <select class="form-control" name="categoryId" required>
+                        <option value="<%= property.categoryId._id %>">--- <%= property.categoryId.name %> ---</option>
+                        <% for(let i = 0; i < category.length; i++) { %>
+                        <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Image</label>
+                    <input type="file" class="form-control" name="image" multiple>
+                    <span>Choose files to update (3 files).<sup>(Optional)</sup></span>
+                </div>
+                <div class="form-group">
+                    <label for="name">Description</label>
+                    <textarea name="about" class="form-control" placeholder="Enter description"><%= property.description %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
